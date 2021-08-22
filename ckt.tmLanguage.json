@@ -1,0 +1,84 @@
+{
+  "name": "CKT",
+  "scopeName": "source.ckt",
+  "fileTypes": [ "ckt" ],
+
+  "foldingStartMarker": "\\[\\s*$",
+  "foldingStopMarker": "^\\s*\\]",
+
+  "patterns": [
+    { "include": "#element" }
+  ],
+
+  "repository": {
+    "constant": {
+      "name": "constant.language.ckt",
+      "match": "(?<=^|[\\s;,\"|=\\[\\]#\\\\])(?:true|false|null)(?=$|[\\s;,\"|=\\[\\]#\\\\])"
+    },
+    "number": {
+      "name": "constant.numeric.ckt",
+      "match": "(?<=^|[\\s;,\"|=\\[\\]#\\\\])[+-]?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?(?=$|[\\s;,\"|=\\[\\]#\\\\])"
+    },
+    "string": {
+      "name": "string.quoted.double.ckt",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.ckt",
+          "match": "\\\\(?:u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|.)"
+        }
+      ]
+    },
+    "literal": {
+      "name": "variable.other.literal.ckt",
+      "match": "(?:(\\\\(?:u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|.))|[^ \\t\\v\\f\\r\\n;,\"|=\\[\\]#\\\\])(?:(?:(\\\\(?:u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|.))|[^\\n;,\"|=\\[\\]#\\\\])*(?:(\\\\(?:u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|.))|[^ \\t\\v\\f\\r\\n;,\"|=\\[\\]#\\\\]))?",
+      "captures": {
+        "1": { "name": "constant.character.escape.literal.ckt" },
+        "2": { "name": "constant.character.escape.literal.ckt" }
+      }
+    },
+    "multiline": {
+      "name": "string.quoted.other.multiline.ckt",
+      "match": "(?:[ \\t\\v\\f\\r]*\\|.*(?:\\n|$))+"
+    },
+
+    "comment": {
+      "name": "comment.line.number-sign.ckt",
+      "match": "#.*$"
+    },
+    "separator": {
+      "name": "meta.structure.table.separator.ckt",
+      "patterns": [
+        { "include": "#comment" },
+        { "match": ",|;|\\n|$" }
+      ]
+    },
+    "equals": {
+      "name": "meta.structure.table.separator.equals.ckt",
+      "match": "="
+    },
+
+    "element": {
+      "name": "meta.structure.table.element.ckt",
+      "patterns": [
+        { "include": "#constant" },
+        { "include": "#number" },
+        { "include": "#string" },
+        { "include": "#literal" },
+        { "include": "#multiline" },
+        { "include": "#comment" },
+        { "include": "#separator" },
+        { "include": "#equals" },
+        { "include": "#table" }
+      ]
+    },
+
+    "table": {
+      "name": "meta.structure.table.ckt",
+      "begin": "\\[",
+      "end": "\\]",
+      "patterns": [ { "include": "#element" } ]
+    }
+  }
+}

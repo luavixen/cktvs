@@ -1,0 +1,39 @@
+{
+  "name": "cktvs",
+  "displayName": "cktvs",
+  "description": "Syntax highlighting for the CKT config language.",
+  "version": "1.0.0",
+  "author": "Lua MacDougall <lua@foxgirl.dev> (https://foxgirl.dev/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luavixen/cktvs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luavixen/cktvs/issues"
+  },
+  "homepage": "https://github.com/luavixen/cktvs#readme",
+  "engines": {
+    "vscode": "^1.40.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ckt",
+        "aliases": ["CKT", "ckt"],
+        "extensions": [".ckt"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ckt",
+        "scopeName": "source.ckt",
+        "path": "./ckt.tmLanguage.json"
+      }
+    ]
+  }
+}
