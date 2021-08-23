@@ -25,14 +25,14 @@
         "id": "ckt",
         "aliases": ["CKT", "ckt"],
         "extensions": [".ckt"],
-        "configuration": "./language-configuration.json"
+        "configuration": "./language.json"
       }
     ],
     "grammars": [
       {
         "language": "ckt",
         "scopeName": "source.ckt",
-        "path": "./ckt.tmLanguage.json"
+        "path": "./grammar.tmLanguage.json"
       }
     ]
   }
