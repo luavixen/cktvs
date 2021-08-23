@@ -1,6 +1,7 @@
 {
   "name": "cktvs",
   "displayName": "cktvs",
+  "publisher": "luavixen",
   "description": "Syntax highlighting for the CKT config language.",
   "version": "1.0.0",
   "author": "Lua MacDougall <lua@foxgirl.dev> (https://foxgirl.dev/)",
@@ -14,7 +15,7 @@
   },
   "homepage": "https://github.com/luavixen/cktvs#readme",
   "engines": {
-    "vscode": "^1.40.0"
+    "vscode": "^1.10.0"
   },
   "categories": [
     "Programming Languages"
